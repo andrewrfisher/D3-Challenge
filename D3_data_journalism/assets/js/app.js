@@ -1,5 +1,5 @@
 //create svg canvas
-var svgWidth = 960;
+var svgWidth = 900;
 var svgHeight = 500;
 
 //define margins
@@ -7,7 +7,7 @@ var margin = {
   top: 20,
   right: 40,
   bottom: 60,
-  left: 100
+  left: 60
 };
 
 var width = svgWidth - margin.left - margin.right;
@@ -40,7 +40,7 @@ d3.csv("trend_data.csv").then(function(trendData1) {
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([2, d3.max(trendData1, d => d.healthcare)])
+      .domain([2, ((d3.max(trendData1, d => d.healthcare)) +1)])
       .range([height, 0]);
 
     // Step 3: Create axis functions
