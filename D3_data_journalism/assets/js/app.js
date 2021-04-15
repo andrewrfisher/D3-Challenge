@@ -36,11 +36,11 @@ d3.csv("trend_data.csv").then(function(trendData1) {
     // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
-      .domain([7.5, d3.max(trendData1, d => d.poverty)])
+      .domain([8.5, d3.max(trendData1, d => d.poverty)])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(trendData1, d => d.healthcare)])
+      .domain([2, d3.max(trendData1, d => d.healthcare)])
       .range([height, 0]);
 
     // Step 3: Create axis functions
@@ -93,7 +93,7 @@ d3.csv("trend_data.csv").then(function(trendData1) {
       .style("background-color", "#0EA0B1")
       .style("padding", "10px")
       .html(function(d) {
-        return (`${d.state}<br>Poverty %: ${d.poverty} % <br>Healthcare %: ${d.healthcare} %`);
+        return (`${d.state}<br>Poverty: ${d.poverty} % <br>Healthcare: ${d.healthcare} %`);
       });
 
     // Step 7: Create tooltip in the chart
